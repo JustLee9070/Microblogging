@@ -44,11 +44,11 @@ const userSchema = new mongoose.Schema({
     },
     bio:{
         type: String,
-        defaul:""
+        defaul:" "
     },
     link:{
         type: String,
-        defaul:""
+        defaul:" "
     },
 
 }, {timestamps: true})
