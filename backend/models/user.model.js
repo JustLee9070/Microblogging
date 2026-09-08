@@ -1,57 +1,64 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    username:{
+    username: {
         type: String,
         required: true,
         uniquie: true,
     },
-    fullName:{
+    fullName: {
         type: String,
         required: true,
     },
-    password:{
+    password: {
         type: String,
         required: true,
-        minLength: 6, 
+        minLength: 6,
     },
-    email:{
+    email: {
         type: String,
         required: true,
         uniquie: true,
     },
-    followers:[
+    followers: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref:"User",
-            default:[] 
+            ref: "User",
+            default: []
         }
     ],
-    following:[
+    following: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref:"User",
-            default:[] 
+            ref: "User",
+            default: []
         }
     ],
-    coverImg:{
+    coverImg: {
         type: String,
-        defaul:""
+        defaul: ""
     },
-    profileImg:{
+    profileImg: {
         type: String,
-        defaul:""
+        defaul: ""
     },
-    bio:{
+    bio: {
         type: String,
-        defaul:" "
+        defaul: " "
     },
-    link:{
+    link: {
         type: String,
-        defaul:" "
+        defaul: " "
     },
+    likedPosts: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Post",
+            default: []
+        }
+    ],
 
-}, {timestamps: true})
+}, { timestamps: true })
 
 const User = mongoose.model("User", userSchema)
 export default User 
